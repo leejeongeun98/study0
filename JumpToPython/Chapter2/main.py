@@ -238,6 +238,266 @@ b = [1, 2, 3]
 c = ['life', 'is', 'too', 'short']
 d = [1, 2, 'life', 'is']
 
+# 비어있는 리스트  a = list() 생성가능함
+
+a = [1,2,3]
+a[0] # 1
+a[0] + a[2] # 4
+a[-1] # 3
+
+a = [1,2,3,['a','b','c']]
+a[0] # 1
+a[-1] # ['a','b','c']
+a[3] # ['a','b','c']
+
+a[-1][0] # 'a'
+a[-1][1] # 'b'
+a[-1][2] # 'c'
+
+a = [1,2,['a','b',['life', 'is']]]
+a[2][2][0] # 'life'
+
+# 리스트의 슬라이싱
+
+a = [1,2,3,4,5]
+a[0:2] # [1,2]
+
+a = "12345"
+a[0:2] #'12'
+
+a = [1,2,3['a','b','c'],4,5]
+a[2:5] # [3,['a','b','c'],4]
+a[3][:2] # ['a','b']
+
+a = [1,2,3]
+b = [4,5,6]
+a + b #[1,2,3,4,5,6]
+
+a = [1,2,3]
+a * b # [1,2,3,1,2,3,1,2,3]
+
+a = [1,2,3]
+len(a) # 3
+
+# 오류
+# a = [1,2,3]
+# a[2] + "hi" 3hi가 아닌 오류가 뜨게 됨
+# 이때 str 함수를 사용해 정수나 실수를 문자열로 바꿔줘야 함
+
+str(a[2]) + "hi" # 3hi
+
+# 리스트 수정과 삭제
+a = [1,2,3]
+a[2] = 4
+a # [1,2,4]
+
+a = [1,2,3]
+del a[1]
+a # [1,3]
+
+a = [1,2,3,4,5]
+del a[2:]
+a # [1,2]
+
+# 리스트에 요소 추가 (append)
+
+a = [1,2,3]
+a.append(4)
+a # [1,2,3,4]
+
+a.append([5,6])
+a # [1,2,3,4,[5,6]]
+
+# 리스트 정렬 (sort)
+a = [1,4,3,2]
+a.sort()
+a # [1,2,3,4]
+
+# 마찬가지로 알파벳순도 가능함
+
+# 뒤집기 (reverse)
+a = ['a','c','b']
+a.reverse()
+a #['b','c','a']
+
+# 위치반환 (index)
+# 리스트 안에 () 넣은 x값이 있음 x의 위치 값을 돌려줌
+a = [1,2,3]
+a.index(3) #2
+a.index(1) #0
+a.index(0) #error
+
+# 리스트에 요소 삽입 (insert)
+# insert(a,b) a = 위치 b = 삽입 함수
+a = [1,2,3]
+a.insert(0,4) # [4,1,2,3]
+a.insert(3,5) # [4,1,2,5,3]
+
+# 리스트 요소 제거 (remove)
+# remove(x) 첫번쨰로 나오는 x값 함수 삭제
+a = [1,2,3,1,2,3]
+a. remove(3)
+a #[1,2,1,2,3]
+a.remove(3)
+a # [1,2,1,2] 한번 더 실행 했을 경우
+
+# 리스트 요소 끄집어내기 (pop)
+# pop은 리스트의 맨 마지막 요소를 돌려준 다음 그 요소 삭제
+a = [1,2,3]
+a.pop() # 3
+a #[1,2]
+
+a = [1,2,3]
+a.pop(1) # 2
+a [1,3]
+
+# 리스트에 포함된 요소 x의 개수 세기 (count)
+a = [1,2,3,4]
+a.count(1) #2
+
+# 확장 (extend)
+a = [1,2,3]
+a.extend([4,5])
+a  # [1,2,3,4,5]
+b =[6,7]
+a.extend(b)
+a # [1,2,3,4,5,6,7]
+# a.extend([4,5]) = a +=[4,5]
+
+# 튜플 (list와 거의 흡사)
+t1 = ()
+t2 = (1,) # 1개의 요소만을 가질 때 , must need
+t3 = (1,2,3)
+t4 = 1,2,3 # 괄호 생략해도 무방
+t5 = ('a','b',('ab','cd'))
+
+# 삭제 요솟값 변경 지원 안됨
+t1 = (1,2,'a','b')
+del t1[0] # error 지원되는 기능 아님
+
+t1 = (1,2,'a','b')
+t1[0] = 'c' # error 지원되는 기능 아님
+
+# 딕셔너리
+a = {1:'a'}
+a[2] = 'b'
+a # {1: 'a', 2: 'b'}
+
+a['name'] = 'pey'
+a # {1: 'a', 2: 'b', 'name': 'pey'}
+a[3] = [1,2,3]
+a # {1: 'a', 2: 'b', 'name': 'pey', 3:[1,2,3]}
+
+del a[1]
+a # {2: 'b', 'name': 'pey', 3:[1,2,3]}
+
+dic = {'name': 'pey', 'phone': '010298374', 'birth': '1118'}
+dic['name'] # 'pey'
+dic['phone'] # '010298374'
+
+# dictionary 주의점 중복되는 key값 뒤에 값만 인식함 so 다른 key값 설정
+
+a = {[1,2]: 'hi'} # error
+
+a = {'name': 'pey', 'phone': '010298374', 'birth': '1118'}
+a.keys()
+dict_keys(['name', 'phone', 'birth'])
+# a의 key만을 모아 dict_keys 객체를 돌려주는 형태
+# 리스트 고유의 append, insert, pop remove, sort 함수 사용 금지
+# dict_keys 객체 리스트 변환
+list(a.keys())
+['name', 'phone', 'birth']
+
+a.values()
+dict_values(['pey,', '010298374', '1118'])
+a.items()
+dict_values([('name','pey,'),('phone','010298374'),('birth', '1118')])
+#key와 value의 쌍을 튜플로 묶은 값 출력
+a.clear()
+a # {} dictionary 안에 모든 요소 delete
+
+a.get('name') # 'pey' = a['name']
+# 차이점 a.get('nokey') 는 None값  돌려줌 [None = 거짓]
+
+a.get('foo','bar')
+# 'bar'  a dictionary에는 'foo' 해당값 없어, default값인 'bar' 출력
+
+'name' in a
+# True
+'email' in a
+# False
+
+# 집합 자료형
+s1 = set([1,2,3])
+s1 # {1,2,3}
+s2 = set("Hello")
+s2 # { 'e', 'h', 'l', 'o'} Unordered형으로 문자열 입력, 중복 허용 안함
+# s = set() 비어있는 자료형
+
+s1 = set([1,2,3])
+l1 = list(s1)
+l1 #[1,2,3]
+l1[0] # 1
+# list = tuple(s1) (1,2,3) t1[0] - 1
+
+# 교집합, 합집합, 차집합 구하기
+s1 = set([1,2,3,4,5,6])
+s2 = set([4,5,6,7,8,9])
+
+# 교집합 s1 & s2 or s1.intersection(s2) = s2.intersection(s1)
+# 합집합 s1 | s2 or s1.union(s2) = s2.union(s1)
+# 차집합 s1 - s2 /= s2 - s1 or s1.difference(s2) /= s2.difference(s1)
+
+s1.add() # 한개값 추가시
+s1.update([]) # 여러값 추가시
+s1.remove() # 특정값 제거
+
+# bool 자료형
+a = True
+b = False
+
+type(a)
+<class 'bool'>
+type(b)
+<class 'bool'>
+
+1 == 1 # True
+2 > 1 # True
+2 < 1 # False
+
+# True
+# "python" [1,2,3] 1
+# False
+# "" [] {} () 0 None
+
+bool('python') # True
+bool("") # False
+
+a = [1,2,3]
+id(a) # 4303029896 id() 객체의 주소값을 돌려주는 내장 함수
+
+from copy import copy
+a = [1,2,3]
+b = copy(a)
+
+b is a  # False
+
+a = [1,2,3]
+b = a.copy()
+
+a, b = ('python', 'life')
+(a, b) = 'python', 'life'
+[a,b] = ['python', 'life']
+a = b = 'python'
+
+# 변수 바꾸기
+a = 3
+b =5
+a, b = b, a
+a # 5
+b # 3
+
+
 
 
 
